@@ -74,10 +74,21 @@ a {
 }
 
 .site-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--white), #fbfbfb);
+  border-bottom: 1px solid #d7d7d7;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
   position: relative;
   z-index: 20;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(244, 123, 32, 0));
 }
 
 .header-inner {
@@ -91,16 +102,25 @@ a {
 .brand {
   display: flex;
   align-items: center;
+  position: relative;
+  padding: 8px 0 11px;
   min-width: 360px;
+}
+
+.brand::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 84px;
+  height: 4px;
+  background: var(--accent);
 }
 
 .brand-logo {
   width: 320px;
   height: auto;
-  padding: 7px 8px;
-  background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  background: transparent;
 }
 
 .nav {
@@ -114,14 +134,17 @@ a {
   display: flex;
   align-items: center;
   padding: 35px 18px;
-  border-left: 1px solid var(--line);
+  border-left: 1px solid #d9d9d9;
   font-size: 14px;
-  color: #636363;
+  color: var(--charcoal);
+  font-weight: 700;
+  transition: color 160ms ease, background-color 160ms ease;
 }
 
 .nav a:hover,
 .nav a:focus-visible {
   color: var(--accent);
+  background: rgba(244, 123, 32, 0.06);
 }
 
 .nav .nav-cta {
@@ -680,7 +703,8 @@ a {
   width: 250px;
   margin-bottom: 12px;
   background: var(--white);
-  border-color: rgba(255, 255, 255, 0.16);
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: none;
 }
 
